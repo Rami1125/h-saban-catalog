@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קטלוג מוצרים | ח.סבן חומרי בניין וחישובי כמויות</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #0099ff;
+            --accent: #ff6600;
+            --background: #f5f9ff;
+            --text: #003366;
+            --glass: rgba(255, 255, 255, 0.95);
+            --glass-dark: rgba(0, 51, 102, 0.9);
+            --shadow: 0 8px 32px rgba(0, 51, 102, 0.15);
+            --border: 1px solid rgba(255, 255, 255, 0.3);
+            --neon-blue: #00ccff;
+            --brand-sika: #ffcc00;
+            --brand-termokir: #0056b3;
+            --brand-tambour: #e30613;
+            --brand-nirlat: #009640;
+            --brand-kremit: #6a3b9a;
+            --glow: 0 0 15px rgba(0, 204, 255, 0.5);
+            --whatsapp: #25D366;
+            --error: #e74c3c;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f0ff 0%, #cce0ff 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* עיצוב לוגו ופרטי סניפים */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-image: url('https://i.postimg.cc/NjhWzHjM/1000101077.jpg');
+            background-size: cover;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: var(--glow);
+            animation: float 4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .branch-info {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            border: var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .branch-info:hover {
+            transform: translateY(-5px);
+        }
+
+        .branch-info h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .branch-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .branch-info a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .branch-info a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .branch-info i {
+            width: 20px;
+            color: var(--secondary);
+        }
+
+        .branch-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .branch-btn {
+            padding: 8px 12px;
+            background: rgba(0,102,204,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,102,204,0.2);
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .branch-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* עיצוב כותרת */
+        .header {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: var(--shadow), inset 0 0 20px rgba(255,255,255,0.5);
+            border: var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, rgba(0,102,204,0.1) 100%);
+            z-index: -1;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 0 2px 10px rgba(0,102,204,0.2);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 20%;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+
+        /* עיצוב חיפוש */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(0,102,204,0.2);
+            font-size: 1.1rem;
+            background: var(--glass);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            backdrop-filter: blur(5px);
+            color: var(--text);
+        }
+
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 5px 25px rgba(0,102,204,0.3);
+            transform: translateY(-3px);
+            border-color: var(--neon-blue);
+        }
+
+        /* עיצוב כפתורי מותגים */
+        .brands-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 10px;
+        }
+
+        .brand-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background-size: 60%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 2px solid rgba(0,102,204,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,102,204,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .brand-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,102,204,0.2);
+        }
+
+        .brand-btn:hover::after {
+            opacity: 1;
+        }
+
+        .brand-btn.active {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+            transform: translateY(-3px);
+        }
+
+        /* עיצוב קטגוריות */
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 2rem 0;
+            padding: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .category-buttons::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            background: var(--glass);
+            border: none;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 50px;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,102,204,0.3);
+        }
+
+        .category-btn:hover::before, .category-btn.active::before {
+            opacity: 1;
+        }
+
+        .category-btn i {
+            font-size: 18px;
+        }
+
+        /* עיצוב כרטיסי מוצרים */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .product-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: var(--border);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, transparent 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card .product-image {
+            height: 180px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: -1.5rem -1.5rem 1rem -1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.03);
+        }
+
+        .product-card .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .product-card .product-name::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .product-card:hover .product-name::after {
+            width: 60px;
+        }
+
+        .product-card .product-category {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 8px rgba(0,102,204,0.2);
+            align-self: flex-start;
+        }
+
+        .product-card .product-specs {
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .product-card .product-spec {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-card .product-spec i {
+            width: 20px;
+            color: var(--secondary);
+            margin-left: 5px;
+            font-size: 0.9rem;
+        }
+
+        .product-card .product-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 1.2rem;
+        }
+
+        .product-card .details-btn, 
+        .product-card .calc-btn,
+        .product-card .whatsapp-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.9rem;
+        }
+
+        .product-card .details-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+        }
+
+        .product-card .calc-btn {
+            background: linear-gradient(135deg, var(--accent), #ff8533);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255,102,0,0.3);
+        }
+
+        .product-card .whatsapp-btn {
+            background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+        }
+
+        .product-card .details-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,102,204,0.4);
+        }
+
+        .product-card .calc-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255,102,0,0.4);
+        }
+
+        .product-card .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37,211,102,0.4);
+        }
+
+        /* עיצוב פופ-אפ */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,51,102,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s;
+            overflow: hidden;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .popup-content {
+            background: var(--glass);
+            border-radius: 25px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: var(--border);
+            animation: popupIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            margin: 20px;
+        }
+
+        /* הוספת אנימציות למסגרת הפופ-אפ */
+        .popup-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(0,204,255,0.1) 50%,
+                transparent 75%
+            );
+            animation: rotateBorder 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* אנימציה לסגירת הפופ-אפ */
+        .popup-content.closing {
+            animation: popupOut 0.3s ease-out forwards;
+        }
+
+        @keyframes popupOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.8); opacity: 0; }
+        }
+
+        @keyframes popupIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,102,204,0.1);
+            color: var(--primary);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(0,102,204,0.2);
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+            border-color: var(--primary);
+        }
+
+        .popup-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .popup-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            height: 300px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 12px 0;
+            scrollbar-width: thin;
+        }
+
+        .thumbnails::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .thumbnails::-webkit-scrollbar-thumb {
+            background: rgba(0,102,204,0.3);
+            border-radius: 5px;
+        }
+
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .popup-details {
+            padding-right: 1rem;
+        }
+
+        .popup-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .popup-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--neon-blue);
+            border-radius: 3px;
+        }
+
+        .popup-brand {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,102,204,0.2);
+        }
+
+        .popup-specs {
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .spec-item i {
+            width: 25px;
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+
+        .spec-item strong {
+            min-width: 150px;
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* עיצוב מחשבונים */
+        .calculator-section {
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            grid-column: span 2;
+            backdrop-filter: blur(10px);
+            border: var(--border);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .calculator-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .calculator-section h3 i {
+            color: var(--accent);
+        }
+
+        .calc-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+        }
+
+        .calc-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .calc-tab {
+            padding: 8px 15px;
+            background: rgba(0,102,204,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .calc-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .calc-input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .calc-input-container {
+            position: relative;
+        }
+
+        .calc-input-container label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .calc-input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 2px solid rgba(0,102,204,0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            color: var(--text);
+        }
+
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+        }
+
+        .calc-unit {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .calc-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,102,204,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calc-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .calc-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,102,204,0.4);
+        }
+
+        .calc-button:hover::after {
+            opacity: 1;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, rgba(46,204,113,0.9), rgba(39,174,96,0.9));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            display: none;
+            animation: fadeInUp 0.4s;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 15px rgba(46,204,113,0.3);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-box p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .result-box strong {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .result-box i {
+            font-size: 1.1rem;
+        }
+
+        /* עיצוב טופס הזמנה בווצאפ */
+        .whatsapp-form {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-form h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .whatsapp-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(0,102,204,0.2);
+            border-radius: 10px;
+            min-height: 100px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.95);
+            color: var(--text);
+        }
+
+        .whatsapp-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+        }
+
+        .whatsapp-submit {
+            background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.2);
+        }
+
+        .whatsapp-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+        }
+
+        /* עיצוב עגלת קניות */
+        .cart-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,102,204,0.3);
+            z-index: 999;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .cart-button:hover {
+            transform: scale(1.1) rotate(-10deg);
+        }
+        
+        #cartCounter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* עיצוב פופ-אפ עגלת קניות */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: flex-end;
+            z-index: 1001;
+            backdrop-filter: blur(5px);
+        }
+
+        .cart-popup {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+            position: relative;
+        }
+
+        .cart-popup.open {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--error);
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,102,204,0.3);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text);
+        }
+
+        /* עיצוב רספונסיבי */
+        @media (max-width: 1200px) {
+            .popup-body {
+                gap: 1.5rem;
+            }
+            
+            .popup-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .popup-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .popup-details {
+                padding-right: 0;
+            }
+            
+            .main-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .category-buttons, .brands-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 12px;
+            }
+            
+            .category-btn, .brand-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .brand-btn {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .popup-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .cart-popup {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .product-card {
+                padding: 1.2rem;
+            }
+            
+            .product-card .product-actions {
+                flex-direction: column;
+            }
+            
+            .spec-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            
+            .spec-item strong {
+                min-width: 100%;
+            }
+
+            .brand-btn {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .popup-content {
+                padding: 1.2rem;
+            }
+            
+            .main-image {
+                height: 200px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item-image {
+                width: 100%;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo-container">
+            <div class="logo"></div>
+            <div class="branch-info">
+                <h3><i class="fas fa-store"></i> סניף ראשי - ח.סבן</h3>
+                <p><i class="fas fa-map-marker-alt"></i> רחוב התעשייה 15, אזור תעשייה הדרומי, אשדוד</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:085088608">08-5088608</a></p>
+                <p><i class="fas fa-mobile-alt"></i> <a href="tel:0508860896">050-8860896</a></p>
+                <div class="branch-selector">
+                    <div class="branch-btn active" data-branch="main">סניף ראשי</div>
+                    <div class="branch-btn" data-branch="north">סניף צפון</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="branch-info">
+            <h3><i class="fas fa-store"></i> סניף צפון - ח.סבן</h3>
+            <p><i class="fas fa-map-marker-alt"></i> רחוב יגאל אלון 32, אזור תעשייה הצפוני, אשדוד</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:086344567">08-6344567</a></p>
+            <p><i class="fas fa-mobile-alt"></i> <a href="tel:0547890123">054-7890123</a></p>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>קטלוג מוצרים של ח.סבן חומרי בניין וחישובי כמויות</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 חפש מוצר...">
+        </div>
+    </header>
+
+    <div class="brands-container" id="brandsContainer">
+        <div class="brand-btn" data-brand="תרמוקיר" style="background-image: url('https://termokir.co.il/logo.png')"></div>
+        <div class="brand-btn" data-brand="סיקה" style="background-image: url('https://play-lh.googleusercontent.com/xdTqJuNYkNnqYqFK-9N9zWpH44GG7i6NPMYOn5NlbJ7nqdh9Z2cc0IQmJl6jjW9nrzw=w600-h300-pc0xffffff-pd')"></div>
+        <div class="brand-btn" data-brand="טמבור" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbiEMEuOPkoj8iuEvMUTQxY2brD49simBJjQ&s')"></div>
+        <div class="brand-btn" data-brand="נירלט" style="background-image: url('https://upload.wikimedia.org/wikipedia/he/d/d2/%D7%A0%D7%99%D7%A8%D7%9C%D7%98.png')"></div>
+        <div class="brand-btn" data-brand="כרמית מיסטר פיקס" style="background-image: url('https://gbcu.org.il/wp-content/uploads/2023/01/%D7%9B%D7%A8%D7%9E%D7%99%D7%AA-%D7%9E%D7%99%D7%A1%D7%98%D7%A8-%D7%A4%D7%99%D7%A7%D7%A1.png')"></div>
+        <div class="brand-btn" data-brand="כל המותגים" style="background-image: url('https://cdn-icons-png.flaticon.com/512/5662/5662990.png')"></div>
+    </div>
+
+    <div class="category-buttons">
+        <button class="category-btn active" data-category="all"><i class="fas fa-boxes"></i> הכל</button>
+        <button class="category-btn" data-category="צבעים"><i class="fas fa-paint-roller"></i> צבעים</button>
+        <button class="category-btn" data-category="איטום"><i class="fas fa-water"></i> איטום</button>
+        <button class="category-btn" data-category="טיח"><i class="fas fa-home"></i> טיח</button>
+        <button class="category-btn" data-category="דבקים"><i class="fas fa-glue"></i> דבקים</button>
+        <button class="category-btn" data-category="חול ובטון"><i class="fas fa-cubes"></i> חול ובטון</button>
+        <button class="category-btn" data-category="אריחים"><i class="fas fa-border-style"></i> אריחים</button>
+        <button class="category-btn" data-category="כלי עבודה"><i class="fas fa-tools"></i> כלי עבודה</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        <!-- המוצרים יוטענו כאן דינאמית -->
+    </div>
+
+    <div class="popup-overlay" id="productPopup">
+        <div class="popup-content">
+            <div class="close-btn" id="closePopup">&times;</div>
+            <div class="popup-body" id="popupBody">
+                <!-- תוכן הפופ-אפ יוטען דינאמית -->
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-button" id="cartButton">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCounter">0</span>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-popup" id="cartPopup">
+            <div class="cart-header">
+                <h3>עגלת הקניות שלך</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- פריטי העגלה יוטענו כאן דינאמית -->
+            </div>
+            <div class="cart-summary" id="cartSummary">
+                <div class="summary-row">
+                    <span>סה"כ ביניים:</span>
+                    <span id="subtotal">₪0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>משלוח:</span>
+                    <span id="shipping">₪0.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>סה"כ לתשלום:</span>
+                    <span id="total">₪0.00</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">לתשלום ובחירת משלוח</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // מערכת עגלת קניות
+        let shoppingCart = {
+            items: [],
+            total: 0,
+            branch: 'main',
+            shipping: 0
+        };
+
+        // פונקציות ניהול עגלה
+        function addToCart(product, quantity = 1) {
+            const existingItem = shoppingCart.items.find(item => item.id === product.id);
+            if(existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                shoppingCart.items.push({
+                    ...product,
+                    quantity,
+                    price: product.price || 0
+                });
+            }
+            updateCartDisplay();
+            updateCartPopup();
+        }
+
+        function removeFromCart(productId) {
+            shoppingCart.items = shoppingCart.items.filter(item => item.id !== productId);
+            updateCartDisplay();
+            updateCartPopup();
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            const item = shoppingCart.items.find(item => item.id === productId);
+            if(item) {
+                item.quantity = Math.max(1, newQuantity);
+                updateCartDisplay();
+                updateCartPopup();
+            }
+        }
+
+        function calculateTotals() {
+            let subtotal = 0;
+            shoppingCart.items.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+            
+            // חישוב משלוח - לדוגמה: 25 ש"ח או חינם מעל 300 ש"ח
+            shoppingCart.shipping = subtotal > 300 ? 0 : 25;
+            
+            shoppingCart.total = subtotal + shoppingCart.shipping;
+            
+            return {
+                subtotal: subtotal.toFixed(2),
+                shipping: shoppingCart.shipping.toFixed(2),
+                total: shoppingCart.total.toFixed(2)
+            };
+        }
+
+        function updateCartDisplay() {
+            const cartCounter = document.getElementById('cartCounter');
+            if(cartCounter) {
+                const totalItems = shoppingCart.items.reduce((sum, item) => sum + item.quantity, 0);
+                cartCounter.textContent = totalItems;
+                cartCounter.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function updateCartPopup() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totals = calculateTotals();
+            
+            if(shoppingCart.items.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                        <p>העגלה שלך ריקה</p>
+                        <p>הוסף מוצרים כדי להתחיל</p>
+                    </div>
+                `;
+                document.getElementById('cartSummary').style.display = 'none';
+                return;
+            }
+            
+            document.getElementById('cartSummary').style.display = 'block';
+            
+            cartItemsContainer.innerHTML = shoppingCart.items.map(item => `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="cart-item-image" style="background-image: url('${item.images ? item.images[0] : ''}')"></div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${item.price.toFixed(2)} ₪</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <span class="quantity-value">${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('subtotal').textContent = `₪${totals.subtotal}`;
+            document.getElementById('shipping').textContent = totals.shipping > 0 ? `₪${totals.shipping}` : 'חינם';
+            document.getElementById('total').textContent = `₪${totals.total}`;
+            
+            // הוספת אירועים לכפתורים בעגלה
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    const item = shoppingCart.items.find(item => item.id === productId);
+                    if(item) {
+                        updateQuantity(productId, item.quantity - 1);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    const item = shoppingCart.items.find(item => item.id === productId);
+                    if(item) {
+                        updateQuantity(productId, item.quantity + 1);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        // פונקציות לניהול תצוגת עגלת הקניות
+        function openCart() {
+            document.getElementById('cartOverlay').style.display = 'flex';
+            document.getElementById('cartPopup').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            updateCartPopup();
+        }
+
+        function closeCart() {
+            document.getElementById('cartPopup').classList.remove('open');
+            setTimeout(() => {
+                document.getElementById('cartOverlay').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // מוצרי גבס
+        const gypsumProducts = [
+            {
+                id: "GYPSUM1",
+                name: "לוח גבס סטרונג ירוק 16 מ״מ",
+                brand: "טמבור",
+                category: "לוחות גבס",
+                specs: {
+                    עובי: "16 מ״מ",
+                    גודל: "1.2x2.4 מטר",
+                    משקל: "28 ק״ג",
+                    עמידות: "עמיד ללחות"
+                },
+                images: ["https://tambour.co.il/wp-content/uploads/2021/01/gypsum-strong-green.jpg"],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות לוחות לפי שטח",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" }
+                        ],
+                        formula: (inputs) => {
+                            const boards = Math.ceil(inputs.area / 2.88); // 1.2x2.4=2.88 מ"ר
+                            return {
+                                result: `נדרשים ${boards} לוחות`,
+                                details: `לכיסוי שטח של ${inputs.area} מ\"ר`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "GYPSUM2",
+                name: "לוח גבס עמיד למים 12.5 מ״מ",
+                brand: "טמבור",
+                category: "לוחות גבס",
+                specs: {
+                    עובי: "12.5 מ״מ",
+                    גודל: "1.2x2.4 מטר",
+                    משקל: "25 ק״ג",
+                    עמידות: "עמיד ללחות"
+                },
+                images: ["https://tambour.co.il/wp-content/uploads/2021/01/gypsum-water-resistant.jpg"],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות לוחות לפי שטח",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" }
+                        ],
+                        formula: (inputs) => {
+                            const boards = Math.ceil(inputs.area / 2.88);
+                            return {
+                                result: `נדרשים ${boards} לוחות`,
+                                details: `לכיסוי שטח של ${inputs.area} מ\"ר`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "GYPSUM3",
+                name: "לוח גבס אקוסטי 15 מ״מ",
+                brand: "טמבור",
+                category: "לוחות גבס",
+                specs: {
+                    עובי: "15 מ״מ",
+                    גודל: "1.2x2.4 מטר",
+                    משקל: "32 ק״ג",
+                    עמידות: "בידוד אקוסטי"
+                },
+                images: ["https://tambour.co.il/wp-content/uploads/2021/01/gypsum-acoustic.jpg"],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות לוחות לפי שטח",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" }
+                        ],
+                        formula: (inputs) => {
+                            const boards = Math.ceil(inputs.area / 2.88);
+                            return {
+                                result: `נדרשים ${boards} לוחות`,
+                                details: `לכיסוי שטח של ${inputs.area} מ\"ר`
+                            };
+                        }
+                    }
+                ]
+            }
+        ];
+
+        // מוצרים נוספים
+        const products = [
+            // מוצרים קיימים
+            {
+                id: 1,
+                name: "אקווניר לבן 18 ליטר",
+                brand: "נירלט",
+                category: "צבעים",
+                coverage: "12 מ\"ר לליטר בשכבה אחת",
+                dryingTime: "2 שעות",
+                usage: "קירות פנימיים",
+                features: ["עמידות גבוהה", "כיסוי מעולה", "ריח נמוך", "ניקוי קל"],
+                description: "צבע אקרילי איכותי לצביעת קירות פנימיים, בעל כושר כיסוי מעולה ועמידות גבוהה. מתאים לכל סוגי המשטחים הפנימיים כולל גבס, בטון וטיח.",
+                images: [
+                    "https://www.homecenter.co.il/cdn/shop/files/4004006379-1.jpg?v=1717248486&width=713",
+                    "https://www.sinaistore.com/wp-content/uploads/2022/08/%D7%90%D7%A7%D7%95%D7%95%D7%A0%D7%99%D7%A8-%D7%90%D7%A7%D7%A1%D7%98%D7%A8%D7%94-%D7%9C%D7%91%D7%9F-800x800.webp"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "מחשבון כמויות צבע",
+                        inputs: [
+                            { label: "שטח הקיר (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "מספר שכבות", id: "coats", unit: "" }
+                        ],
+                        formula: (inputs) => {
+                            const area = parseFloat(inputs.area);
+                            const coats = parseInt(inputs.coats) || 2;
+                            const liters = (area / 12) * coats;
+                            const buckets = Math.ceil(liters / 18);
+                            return {
+                                result: `נדרשים ${liters.toFixed(1)} ליטר צבע`,
+                                details: `מספר דליים: ${buckets} (18 ליטר לדלי)`
+                            };
+                        }
+                    }
+                ]
+            },
+            // מוצרי גבס
+            ...gypsumProducts,
+            // מוצרים חדשים - תרמוקיר
+            {
+                id: "PL102",
+                name: "טיח מיישר PL 102",
+                category: "טיח",
+                brand: "תרמוקיר",
+                coverage: "16 ק\"ג/מ\"ר בעובי 10 מ\"מ",
+                dryingTime: "24 שעות",
+                usage: "פנימי וחיצוני",
+                features: [
+                    "מתאים כבסיס להדבקת אריחים",
+                    "עמידות גבוהה",
+                    "התאמה לציפוי אקרילי/צמנטי"
+                ],
+                description: "טיח צמנטי מיישר איכותי למשטחים פנימיים וחיצוניים. בעל חוזק גבוה והתאמה למגוון ציפויים.",
+                images: [
+                    "https://termokir.co.il/wp-content/uploads/2012/12/pl102-lca-218x386.jpg",
+                    "https://example.com/pl102_2.jpg"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב לפי שטח ועובי",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "עובי (מ\"מ)", id: "thickness", unit: "מ\"מ", value: 10 }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * (inputs.thickness / 10) * 16).toFixed(1);
+                            const bags = Math.ceil(kg / 40);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג טיח`,
+                                details: `מספר שקיות: ${bags} (40 ק\"ג לשקית)`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "AD601",
+                name: "דבק קרמיקה AD 601",
+                category: "דבקים",
+                brand: "תרמוקיר",
+                coverage: "1.5 ק\"ג/מ\"ר בעובי 1 מ\"מ",
+                dryingTime: "24 שעות",
+                usage: "פנימי וחיצוני",
+                features: [
+                    "גמישות גבוהה",
+                    "התאמה למשטחים רטובים",
+                    "הדבקה חזקה"
+                ],
+                description: "דבק צמנטי גמיש להדבקת אריחים סופגים על גבי בטון, טיח ובלוקים.",
+                images: [
+                    "https://termokir.co.il/wp-content/uploads/2012/12/AD601.jpg",
+                    "https://example.com/ad601_2.jpg"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב לפי שטח ועובי",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "עובי (מ\"מ)", id: "thickness", unit: "מ\"מ", value: 5 }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * (inputs.thickness / 1) * 1.5).toFixed(1);
+                            const bags = Math.ceil(kg / 25);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג דבק`,
+                                details: `מספר שקיות: ${bags} (25 ק\"ג לשקית)`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "SE980",
+                name: "איטום צמנטי SE 980",
+                category: "מוצרי איטום",
+                brand: "תרמוקיר",
+                price: 0,
+                coverage: "2 ק\"ג/מ\"ר בעובי 1 מ\"מ",
+                dryingTime: "48 שעות",
+                usage: "חיצוני, בריכות, מרפסות",
+                features: [
+                    "גמישות גבוהה",
+                    "עמידות למים",
+                    "התאמה למשטחי בטון וטיח"
+                ],
+                description: "איטום צמנטי גמיש לאיטום משטחי בטון, טיח ובלוקים באזורים רטובים.",
+                images: [
+                    "https://termokir.co.il/wp-content/uploads/2012/12/SE980.jpg",
+                    "https://example.com/se980_2.jpg"
+                ],
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב לפי שטח ועובי",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "עובי (מ\"מ)", id: "thickness", unit: "מ\"מ", value: 2 }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * (inputs.thickness / 1) * 2).toFixed(1);
+                            const buckets = Math.ceil(kg / 20);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג חומר איטום`,
+                                details: `מספר דליים: ${buckets} (20 ק\"ג לדלי)`
+                            };
+                        }
+                    }
+                ]
+            },
+            
+            // מוצרים חדשים - סיקה
+            {
+                id: "SIKA-LASTIC-1K",
+                name: "סיקה לסטיק 1K",
+                category: "איטום",
+                brand: "סיקה",
+                coverage: "1.5 ק\"ג/מ\"ר לשכבה",
+                dryingTime: "24 שעות",
+                usage: "פנימי וחיצוני",
+                features: [
+                    "חד רכיבי",
+                    "מחוזק בסיבים",
+                    "התאמה לחדרים רטובים ומרפסות"
+                ],
+                description: "תערובת צמנטית משחתית גמישה, חד רכיבית, מחוזקת בסיבים לאיטום אזורים רטובים.",
+                images: [
+                    "https://example.com/sika-lastic-1k.jpg",
+                    "https://example.com/sika-lastic-1k-application.jpg"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות חומר לפי שטח",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * 1.5).toFixed(1);
+                            const bags = Math.ceil(kg / 17);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג חומר`,
+                                details: `מספר שקים: ${bags} (17 ק\"ג לשק)`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "SIKA-CERAM-255",
+                name: "סיקה סרם 255 סטאר פלקס",
+                category: "דבקים",
+                brand: "סיקה",
+                coverage: "1.6 ק\"ג/מ\"ר בעובי 1 מ\"מ",
+                dryingTime: "24 שעות",
+                usage: "פנימי וחיצוני",
+                features: [
+                    "גמישות גבוהה",
+                    "התאמה לאריחי פורצלן",
+                    "יישום בחדרים רטובים"
+                ],
+                description: "דבק צמנטי גמיש מטיפוס C2TE S1 להדבקת אריחי קרמיקה, פורצלן, שיש ואבן.",
+                images: [
+                    "https://gilar.co.il/wp-content/uploads/2021/05/Sika-Ceram-255.jpg",
+                    "https://gilar.co.il/wp-content/uploads/2021/05/Sika-Ceram-255-application.jpg"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות דבק לפי שטח ועובי",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "עובי (מ\"מ)", id: "thickness", unit: "מ\"מ", value: 5 }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * inputs.thickness * 0.16).toFixed(1);
+                            const bags = Math.ceil(kg / 25);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג דבק`,
+                                details: `מספר שקיות: ${bags} (25 ק\"ג לשקית)`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+                id: "SIKAFLEX-11FC",
+                name: "סיקפלקס®-11FC",
+                category: "איטום",
+                brand: "סיקה",
+                price: 0.00,
+                coverage: "1.2 ק\"ג/מ\"ר בעובי 1 מ\"מ",
+                dryingTime: "24 שעות",
+                usage: "פנימי וחיצוני",
+                features: [
+                    "אלסטומרי על בסיס פוליאוריתן",
+                    "התארכות עד 600%",
+                    "התאמה לתפרים וחיבורים"
+                ],
+                description: "איטום והדבקה אלסטומרי על בסיס פוליאוריתן לתפרים וחיבורים בבנייה.",
+                images: [
+                    "https://gilar.co.il/wp-content/uploads/2021/05/Sikaflex-11FC.jpg",
+                    "https://gilar.co.il/wp-content/uploads/2021/05/Sikaflex-11FC-application.jpg"
+                ],
+                calculators: [
+                    {
+                        type: "area",
+                        title: "חישוב כמות לפי שטח ועובי",
+                        inputs: [
+                            { label: "שטח (מ\"ר)", id: "area", unit: "מ\"ר" },
+                            { label: "עובי (מ\"מ)", id: "thickness", unit: "מ\"מ", value: 1 }
+                        ],
+                        formula: (inputs) => {
+                            const kg = (inputs.area * inputs.thickness * 1.2).toFixed(1);
+                            const cartridges = Math.ceil(kg / 0.6);
+                            return {
+                                result: `נדרשים ${kg} ק\"ג חומר`,
+                                details: `מספר מחסניות: ${cartridges} (600 גרם למחסנית)`
+                            };
+                        }
+                    }
+                ]
+            },
+            
+            // מוצרים חדשים - בלוקים
+            {
+                id: "BLK20",
+                name: "בלוק בטון 20 ס״מ",
+                category: "בלוקים",
+                brand: "ח.סבן",
+                coverage: "12.5 יחידות למ\"ר",
+                usage: "קירות חוץ ופנים",
+                features: [
+                    "מידות: 20x20x40 ס״מ",
+                    "משקל: 18 ק״ג",
+                    "חוזק: 7MPa"
+                ],
+                description: "בלוק בטון סטנדרטי לבניית קירות חוץ ופנים.",
+                images: [
+                    "https://blockal.co.il/wp-content/uploads/2017/04/20-20-40-X4-%D7%91%D7%9C%D7%99-%D7%A8%D7%A7%D7%A2-copy.png",
+                    "https://blockal.co.il/wp-content/uploads/2017/04/20-20-20-X1-%D7%91%D7%9C%D7%99-%D7%A8%D7%A7%D7%A2-copy.png"
+                ],
+                price: 0.00,
+                calculators: [
+                    {
+                        type: "wall",
+                        title: "חישוב בלוקים לקיר",
+                        inputs: [
+                            { label: "אורך קיר (מ')", id: "length", unit: "מ'" },
+                            { label: "גובה קיר (מ')", id: "height", unit: "מ'" },
+                            { label: "שטח פתחים (מ\"ר)", id: "openings", unit: "מ\"ר", value: 0 }
+                        ],
+                        formula: (inputs) => {
+                            const area = (inputs.length * inputs.height) - inputs.openings;
+                            const blocks = Math.ceil((area * 12.5) * 1.1);
+                            const mortar = (blocks * 1.2).toFixed(1);
+                            return {
+                                result: `נדרשים ${blocks} בלוקים`,
+                                details: `כמות טיט משוערת: ${mortar} ק\"ג`
+                            };
+                        }
+                    }
+                ]
+            },
+            {
+        id: "SAND1",
+        name: "חול גנים שק גדול כולל פקדון",
+        brand: "ח.סבן חומרי בנין",
+        supplierCode: "310224",
+        productCode: "11601",
+        category: "חול ובטון",
+        specs: {
+            נפח: "0.5 קוב",
+            משקל: "כ-800 ק\"ג",
+            שימוש: "עבודות בנייה ושיפוץ"
+        },
+        description: "חול גנים באיכות גבוהה בשק גדול לנפח של חצי קוב, כולל פקדון.",
+        images: ["https://example.com/sand-bag.jpg"],
+        price: 0.00,
+        calculators: [
+            {
+                type: "volume",
+                title: "חישוב כמות לפי נפח",
+                inputs: [
+                    { label: "נפח נדרש (קוב)", id: "volume", unit: "קוב", value: 0.5 }
+                ],
+                formula: (inputs) => {
+                    const bags = Math.ceil(inputs.volume / 0.5);
+                    return {
+                        result: `נדרשים ${bags} שקים`,
+                        details: `סה"כ נפח: ${(bags * 0.5).toFixed(1)} קוב`
+                    };
+                }
+            }
+        ]
+    },
+    {
+        id: "SAND2",
+        name: "חמרה שק גדול",
+        brand: "ח.סבן חומרי בנין",
+        supplierCode: "310224",
+        productCode: "11570",
+        category: "חול ובטון",
+        specs: {
+            נפח: "0.5 קוב",
+            משקל: "כ-800 ק\"ג",
+            שימוש: "עבודות בנייה ושיפוץ"
+        },
+        description: "חמרה באיכות גבוהה בשק גדול לנפח של חצי קוב.",
+        images: ["https://example.com/hamra-bag.jpg"],
+        price: 0.00,
+        calculators: [
+            {
+                type: "volume",
+                title: "חישוב כמות לפי נפח",
+                inputs: [
+                    { label: "נפח נדרש (קוב)", id: "volume", unit: "קוב", value: 0.5 }
+                ],
+                formula: (inputs) => {
+                    const bags = Math.ceil(inputs.volume / 0.5);
+                    return {
+                        result: `נדרשים ${bags} שקים`,
+                        details: `סה"כ נפח: ${(bags * 0.5).toFixed(1)} קוב`
+                    };
+                }
+            }
+        ]
+    },
+    {
+        id: "SAND7",
+        name: "סומסום שק גדול",
+        brand: "ח.סבן חומרי בנין",
+        supplierCode: "310224",
+        productCode: "11570",
+        category: "חול ובטון",
+        specs: {
+            נפח: "0.5 קוב",
+            משקל: "כ-800 ק\"ג",
+            שימוש: "עבודות בנייה ושיפוץ"
+        },
+        description: "סומסום באיכות גבוהה בשק גדול לנפח של חצי קוב.",
+        images: ["https://example.com/hamra-bag.jpg"],
+        price: 0.00,
+        calculators: [
+            {
+                type: "volume",
+                title: "חישוב כמות לפי נפח",
+                inputs: [
+                    { label: "נפח נדרש (קוב)", id: "volume", unit: "קוב", value: 0.5 }
+                ],
+                formula: (inputs) => {
+                    const bags = Math.ceil(inputs.volume / 0.5);
+                    return {
+                        result: `נדרשים ${bags} שקים`,
+                        details: `סה"כ נפח: ${(bags * 0.5).toFixed(1)} קוב`
+                    };
+                }
+            }
+        ]
+    },
+    {
+        id: "SAND3",
+        name: "טיט מוכן שק גדול",
+        brand: "ח.סבן חומרי בנין",
+        supplierCode: "310224",
+        productCode: "11551",
+        category: "חול ובטון",
+        specs: {
+            נפח: "0.5 קוב",
+            משקל: "כ-850 ק\"ג",
+            שימוש: "עבודות בנייה ושיפוץ"
+        },
+        description: "טיט מוכן באיכות גבוהה בשק גדול לנפח של חצי קוב.",
+        images: ["https://example.com/concrete-bag.jpg"],
+        price: 0.00,
+        calculators: [
+            {
+                type: "volume",
+                title: "חישוב כמות לפי נפח",
+                inputs: [
+                    { label: "נפח נדרש (קוב)", id: "volume", unit: "קוב", value: 0.5 }
+                ],
+                formula: (inputs) => {
+                    const bags = Math.ceil(inputs.volume / 0.5);
+                    return {
+                        result: `נדרשים ${bags} שקים`,
+                        details: `סה"כ נפח: ${(bags * 0.5).toFixed(1)} קוב`
+                    };
+                }
+            }
+        ]
+    },
+    {
+        id: "SAND4",
+        name: "מצע שק גדול",
+        brand: "ח.סבן חומרי בנין",
+        supplierCode: "310224",
+        productCode: "11540",
+        category: "חול ובטון",
+        specs: {
+            נפח: "0.5 קוב",
+            משקל: "כ-750 ק\"ג",
+            שימוש: "עבודות בנייה ושיפוץ"
+        },
+        description: "מצע באיכות גבוהה בשק גדול לנפח של חצי קוב.",
+        images: ["https://example.com/base-bag.jpg"],
+        price: 0.00,
+        calculators: [
+            {
+                type: "volume",
+                title: "חישוב כמות לפי נפח",
+                inputs: [
+                    { label: "נפח נדרש (קוב)", id: "volume", unit: "קוב", value: 0.5 }
+                ],
+                formula: (inputs) => {
+                    const bags = Math.ceil(inputs.volume / 0.5);
+                    return {
+                        result: `נדרשים ${bags} שקים`,
+                        details: `סה"כ נפח: ${(bags * 0.5).toFixed(1)} קוב`
+                    };
+                }
+            }
+        ]
+    },
+            {
+                id: "BLK-SHK20",
+                name: "בלוק שוקת 20/20/40",
+                category: "בלוקים",
+                brand: "ח.סבן",
+                coverage: "12.5 יחידות למ\"ר",
+                usage: "מערכות תשתית",
+                features: [
+                    "מידות: 20x20x40 ס״מ",
+                    "משקל: 18 ק״ג",
+                    "חוזק: 7MPa"
+                ],
+                description: "בלוק שוקת לבנייה קונסטרוקטיבית ומערכות תשתית.",
+                images: [
+                    "https://blockal.co.il/wp-content/uploads/2017/04/block_shuka_20x20x40.png"
+                ],
+                price: 0.000,
+                calculators: [
+                    {
+                        type: "wall",
+                        title: "חישוב בלוקים לקיר",
+                        inputs: [
+                            { label: "אורך קיר (מ')", id: "length", unit: "מ'" },
+                            { label: "גובה קיר (מ')", id: "height", unit: "מ'" }
+                        ],
+                        formula: (inputs) => {
+                            const area = inputs.length * inputs.height;
+                            const blocks = Math.ceil(area * 12.5);
+                            return {
+                                result: `נדרשים ${blocks} בלוקים`,
+                                details: `לשטח קיר של ${area.toFixed(1)} מ\"ר`
+                            };
+                        }
+                    }
+                ]
+            }
+        ];
+
+        // פונקציות לניהול האפליקציה
+        document.addEventListener('DOMContentLoaded', function() {
+            // טעינת מוצרים
+            renderProducts(products);
+            
+            // ניהול בחירת סניף
+            const branchBtns = document.querySelectorAll('.branch-btn');
+            branchBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    branchBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    shoppingCart.branch = this.getAttribute('data-branch');
+                });
+            });
+            
+            // ניהול חיפוש מוצרים
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const filteredProducts = products.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    product.brand.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+                renderProducts(filteredProducts);
+            });
+            
+            // ניהול בחירת מותגים
+            const brandBtns = document.querySelectorAll('.brand-btn');
+            brandBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const brand = this.getAttribute('data-brand');
+                    if (brand === "כל המותגים") {
+                        renderProducts(products);
+                    } else {
+                        const filteredProducts = products.filter(product => 
+                            product.brand === brand
+                        );
+                        renderProducts(filteredProducts);
+                    }
+                    brandBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // ניהול בחירת קטגוריות
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    if (category === "all") {
+                        renderProducts(products);
+                    } else {
+                        const filteredProducts = products.filter(product => 
+                            product.category === category
+                        );
+                        renderProducts(filteredProducts);
+                    }
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // ניהול סגירת פופ-אפ מוצר
+            const closePopup = document.getElementById('closePopup');
+            closePopup.addEventListener('click', function() {
+                const popupContent = document.querySelector('.popup-content');
+                popupContent.classList.add('closing');
+                setTimeout(() => {
+                    document.getElementById('productPopup').style.display = 'none';
+                    popupContent.classList.remove('closing');
+                }, 300);
+            });
+            
+            // ניהול עגלת קניות
+            document.getElementById('cartButton').addEventListener('click', openCart);
+            document.getElementById('closeCart').addEventListener('click', closeCart);
+            document.getElementById('cartOverlay').addEventListener('click', function(e) {
+                if(e.target === this) {
+                    closeCart();
+                }
+            });
+            
+            // כפתור תשלום
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                if(shoppingCart.items.length === 0) {
+                    alert('העגלה שלך ריקה');
+                    return;
+                }
+                
+                const activeBranch = document.querySelector('.branch-btn.active').textContent;
+                const branchPhone = activeBranch.includes("צפון") ? "546344567" : "508860896";
+                
+                let message = `הזמנה מסניף ${activeBranch}:\n\n`;
+                shoppingCart.items.forEach(item => {
+                    message += `${item.name} - ${item.quantity} x ${item.price.toFixed(2)} ₪ = ${(item.quantity * item.price).toFixed(2)} ₪\n`;
+                });
+                
+                const totals = calculateTotals();
+                message += `\nסה"כ ביניים: ${totals.subtotal} ₪\n`;
+                message += `משלוח: ${totals.shipping} ₪\n`;
+                message += `סה"כ לתשלום: ${totals.total} ₪`;
+                
+                const whatsappUrl = `https://wa.me/972${branchPhone}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+
+        // פונקציית הצגת המוצרים ברשת
+        function renderProducts(productsToShow) {
+            const productGrid = document.querySelector('.product-grid');
+            productGrid.innerHTML = '';
+            
+            if (productsToShow.length === 0) {
+                productGrid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;">לא נמצאו מוצרים תואמים לחיפוש</p>';
+                return;
+            }
+            
+            productsToShow.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image" style="background-image: url('${product.images[0]}')"></div>
+                    <h3 class="product-name">${product.name}</h3>
+                    <span class="product-category">${product.category}</span>
+                    <div class="product-specs">
+                        <p class="product-spec"><i class="fas fa-tag"></i> מותג: ${product.brand}</p>
+                        ${product.coverage ? `<p class="product-spec"><i class="fas fa-ruler-combined"></i> כיסוי: ${product.coverage}</p>` : ''}
+                        ${product.price ? `<p class="product-spec"><i class="fas fa-shekel-sign"></i> מחיר: ${product.price.toFixed(2)} ₪</p>` : ''}
+                    </div>
+                    <div class="product-actions">
+                        <button class="details-btn" data-id="${product.id}"><i class="fas fa-info-circle"></i> פרטים</button>
+                        ${product.calculators.length > 0 ? `<button class="calc-btn" data-id="${product.id}"><i class="fas fa-calculator"></i> חישוב</button>` : ''}
+                        <button class="whatsapp-btn" data-id="${product.id}"><i class="fab fa-whatsapp"></i> הזמנה</button>
+                    </div>
+                `;
+                productGrid.appendChild(productCard);
+            });
+            
+            // הוספת אירועים לכפתורי המוצרים
+            document.querySelectorAll('.details-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    showProductDetails(productId);
+                });
+            });
+            
+            document.querySelectorAll('.calc-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    showCalculator(productId);
+                });
+            });
+            
+            document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    showWhatsappForm(productId);
+                });
+            });
+        }
+
+        // פונקציית הצגת פרטי מוצר בפופ-אפ
+        function showProductDetails(productId) {
+            let product;
+            
+            // בדיקה אם ה-ID הוא מספר (למוצרים הישנים) או מחרוזת (למוצרים החדשים)
+            if (!isNaN(productId)) {
+                product = products.find(p => p.id === parseInt(productId));
+            } else {
+                product = products.find(p => p.id === productId);
+            }
+            
+            if (!product) return;
+            
+            const popupBody = document.getElementById('popupBody');
+            popupBody.innerHTML = `
+                <div class="popup-gallery">
+                    <div class="main-image" style="background-image: url('${product.images[0]}')"></div>
+                    <div class="thumbnails">
+                        ${product.images.map((img, index) => `
+                            <div class="thumbnail ${index === 0 ? 'active' : ''}" 
+                                 style="background-image: url('${img}')" 
+                                 data-img="${img}"></div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="popup-details">
+                    <h2 class="popup-title">${product.name}</h2>
+                    <span class="popup-brand">${product.brand}</span>
+                    <p>${product.description}</p>
+                    
+                    <div class="popup-specs">
+                        ${product.price ? `
+                        <div class="spec-item">
+                            <i class="fas fa-shekel-sign"></i>
+                            <strong>מחיר:</strong> ${product.price.toFixed(2)} ₪
+                        </div>` : ''}
+                        ${product.coverage ? `
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <strong>כיסוי:</strong> ${product.coverage}
+                        </div>` : ''}
+                        ${product.dryingTime ? `
+                        <div class="spec-item">
+                            <i class="fas fa-clock"></i>
+                            <strong>זמן ייבוש:</strong> ${product.dryingTime}
+                        </div>` : ''}
+                        ${product.usage ? `
+                        <div class="spec-item">
+                            <i class="fas fa-paint-roller"></i>
+                            <strong>ייעוד:</strong> ${product.usage}
+                        </div>` : ''}
+                        ${product.specs ? Object.entries(product.specs).map(([key, value]) => `
+                        <div class="spec-item">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>${key}:</strong> ${value}
+                        </div>`).join('') : ''}
+                    </div>
+                    
+                    ${product.features && product.features.length > 0 ? `
+                    <div class="features">
+                        <h4><i class="fas fa-star"></i> תכונות עיקריות:</h4>
+                        <ul>
+                            ${product.features.map(feat => `<li>${feat}</li>`).join('')}
+                        </ul>
+                    </div>` : ''}
+                    
+                    <button class="calc-button" id="addToCartBtn" style="margin-top: 1.5rem;">
+                        <i class="fas fa-cart-plus"></i> הוסף לעגלה
+                    </button>
+                </div>
+            `;
+            
+            // הוספת אירועים לתמונות ממוזערות
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const imgUrl = this.getAttribute('data-img');
+                    document.querySelector('.main-image').style.backgroundImage = `url('${imgUrl}')`;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // הוספת אירוע לכפתור הוסף לעגלה
+            document.getElementById('addToCartBtn').addEventListener('click', function() {
+                addToCart(product);
+                alert(`המוצר ${product.name} נוסף לעגלת הקניות`);
+            });
+            
+            // הצגת הפופ-אפ
+            document.getElementById('productPopup').style.display = 'flex';
+        }
+
+        // פונקציית הצגת מחשבון כמויות
+        function showCalculator(productId) {
+            let product;
+            
+            if (!isNaN(productId)) {
+                product = products.find(p => p.id === parseInt(productId));
+            } else {
+                product = products.find(p => p.id === productId);
+            }
+            
+            if (!product || !product.calculators || product.calculators.length === 0) return;
+            
+            const calculator = product.calculators[0]; // לוקחים את המחשבון הראשון
+            
+            const popupBody = document.getElementById('popupBody');
+            popupBody.innerHTML = `
+                <div class="popup-gallery">
+                    <div class="main-image" style="background-image: url('${product.images[0]}')"></div>
+                </div>
+                <div class="popup-details">
+                    <h2 class="popup-title">${product.name}</h2>
+                    <span class="popup-brand">${product.brand}</span>
+                    
+                    <div class="calculator-section">
+                        <h3><i class="fas fa-calculator"></i> ${calculator.title}</h3>
+                        
+                        <div class="calc-input-group">
+                            ${calculator.inputs.map(input => `
+                                <div class="calc-input-container">
+                                    <label for="${input.id}">${input.label}</label>
+                                    <div style="position: relative;">
+                                        ${input.unit ? `<span class="calc-unit">${input.unit}</span>` : ''}
+                                        <input type="number" id="${input.id}" class="calc-input" placeholder="הכנס ${input.label.toLowerCase()}" ${input.value ? `value="${input.value}"` : ''}>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <button class="calc-button" id="calculateBtn">
+                            <i class="fas fa-calculator"></i> חשב
+                        </button>
+                        
+                        <div class="result-box" id="resultBox"></div>
+                        
+                        <button class="calc-button" id="addToCartFromCalc" style="background: linear-gradient(135deg, var(--accent), #ff8533); margin-top: 1rem;">
+                            <i class="fas fa-cart-plus"></i> הוסף לעגלה
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // הוספת אירוע לחישוב
+            document.getElementById('calculateBtn').addEventListener('click', function() {
+                const inputs = {};
+                calculator.inputs.forEach(input => {
+                    inputs[input.id] = document.getElementById(input.id).value;
+                });
+                
+                const result = calculator.formula(inputs);
+                const resultBox = document.getElementById('resultBox');
+                resultBox.innerHTML = `
+                    <p><i class="fas fa-check-circle"></i> <strong>תוצאה:</strong> ${result.result}</p>
+                    <p><i class="fas fa-info-circle"></i> ${result.details}</p>
+                `;
+                resultBox.style.display = 'block';
+            });
+            
+            // הוספת אירוע לכפתור הוסף לעגלה ממחשבון
+            document.getElementById('addToCartFromCalc').addEventListener('click', function() {
+                addToCart(product);
+                alert(`המוצר ${product.name} נוסף לעגלת הקניות`);
+            });
+            
+            // הצגת הפופ-אפ
+            document.getElementById('productPopup').style.display = 'flex';
+        }
+
+        // פונקציית הצגת טופס הזמנה בווצאפ
+        function showWhatsappForm(productId) {
+            let product;
+            
+            if (!isNaN(productId)) {
+                product = products.find(p => p.id === parseInt(productId));
+            } else {
+                product = products.find(p => p.id === productId);
+            }
+            
+            if (!product) return;
+            
+            const activeBranch = document.querySelector('.branch-btn.active').textContent;
+            const branchPhone = activeBranch.includes("צפון") ? "546344567" : "508860896";
+            
+            const popupBody = document.getElementById('popupBody');
+            popupBody.innerHTML = `
+                <div class="popup-gallery">
+                    <div class="main-image" style="background-image: url('${product.images[0]}')"></div>
+                </div>
+                <div class="popup-details">
+                    <h2 class="popup-title">${product.name}</h2>
+                    <span class="popup-brand">${product.brand}</span>
+                    
+                    <div class="whatsapp-form">
+                        <h4><i class="fab fa-whatsapp"></i> הזמן מוצר זה בווצאפ</h4>
+                        <p>מלא את הפרטים ונשלח הודעה אוטומטית לסניף ${activeBranch}:</p>
+                        
+                        <div class="calc-input-group">
+                            <div class="calc-input-container">
+                                <label for="customerName">שם מלא</label>
+                                <input type="text" id="customerName" class="calc-input" placeholder="הכנס את שמך">
+                            </div>
+                            <div class="calc-input-container">
+                                <label for="customerPhone">טלפון</label>
+                                <input type="tel" id="customerPhone" class="calc-input" placeholder="הכנס מספר טלפון">
+                            </div>
+                            <div class="calc-input-container">
+                                <label for="productQuantity">כמות</label>
+                                <input type="number" id="productQuantity" class="calc-input" placeholder="כמות" value="1">
+                            </div>
+                        </div>
+                        
+                        <textarea id="whatsappMessage" placeholder="הוסף הודעה אישית (אופציונלי)..."></textarea>
+                        
+                        <button class="whatsapp-submit" id="sendWhatsapp">
+                            <i class="fab fa-whatsapp"></i> שלח הודעת ווצאפ
+                        </button>
+                        
+                        <button class="whatsapp-submit" id="addToCartFromWhatsapp" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-top: 10px;">
+                            <i class="fas fa-cart-plus"></i> הוסף לעגלה
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // הוספת אירוע לשליחת הודעת ווצאפ
+            document.getElementById('sendWhatsapp').addEventListener('click', function() {
+                const name = document.getElementById('customerName').value || 'לקוח';
+                const phone = document.getElementById('customerPhone').value;
+                const quantity = document.getElementById('productQuantity').value || 1;
+                const message = document.getElementById('whatsappMessage').value;
+                
+                if (!phone) {
+                    alert('אנא הזן מספר טלפון');
+                    return;
+                }
+                
+                const productText = `מוצר: ${product.name}\nכמות: ${quantity}\n${product.price ? `מחיר: ${product.price.toFixed(2)} ₪` : ''}`;
+                const branchText = `סניף: ${activeBranch}`;
+                const customText = message ? `\nהודעה אישית: ${message}` : '';
+                
+                const whatsappUrl = `https://wa.me/972${branchPhone}?text=${encodeURIComponent(
+                    `שלום, אני ${name} (טלפון: ${phone})\nאני מעוניין להזמין:\n${productText}\n${branchText}${customText}`
+                )}`;
+                
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // הוספת אירוע לכפתור הוסף לעגלה מטופס ווצאפ
+            document.getElementById('addToCartFromWhatsapp').addEventListener('click', function() {
+                const quantity = parseInt(document.getElementById('productQuantity').value) || 1;
+                addToCart(product, quantity);
+                alert(`נוספו ${quantity} מוצרים מסוג ${product.name} לעגלת הקניות`);
+            });
+            
+            // הצגת הפופ-אפ
+            document.getElementById('productPopup').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
